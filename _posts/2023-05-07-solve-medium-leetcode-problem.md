@@ -6,7 +6,7 @@ In this article, we are going to solve
 [this problem](https://leetcode.com/problems/longest-substring-without-repeating-characters/) from LeetCode
 
 ## Problem
-In this task, we are given a string, and our goal is to find the length of the longest substring that has no repeated
+According to the tasks, we are given a string, and our goal is to find the length of the longest substring that has no repeated
 characters in it. 
 
 Let's put a couple of sets of the input and expected result:
@@ -21,12 +21,9 @@ Let's put a couple of sets of the input and expected result:
 ## Solution
 ### Simple solution
 An easy way to address this is to split the task into two steps:
-1. Find all possible substrings for the given string
+1. Find all possible substrings for a given string
 2. For each of the substrings, check if it has repeating characters and if its length is greater than the length of the
 current longest substring
-
-To implement this approach, we will need two nested for-loops for the first step, also a var to store the current
-longest substring's length and one more for-loop for the second step.
 
 To start with, let's create a skeleton for the methods and invoke them. This will give you an idea about the algorithm.
 
@@ -47,7 +44,8 @@ public class Solution {
     }
 }
 ```
-Now that we have a clear vision of the steps needed, let's implement the private methods.
+
+Now that we have a clear vision of the main steps needed, let's implement the private methods.
 
 ```java
 public class Solution {
