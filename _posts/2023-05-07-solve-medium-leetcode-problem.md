@@ -81,9 +81,10 @@ public class Solution {
     
     private static boolean hasOnlyUniqueChars(String substring) {
         char[] stringChars = substring.toCharArray();
-        Set<Character> uniqueChars = IntStream.range(0, stringChars.length)
-            .mapToObj(i -> stringChars[i])
-            .collect(Collectors.toSet());
+        Set<Character> uniqueChars = new HashSet<>();
+        for (char stringChar : stringChars) {
+          uniqueChars.add(stringChar);
+        }
         return stringChars.length == uniqueChars.size();
     }
 }
