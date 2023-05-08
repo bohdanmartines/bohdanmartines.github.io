@@ -9,6 +9,15 @@ In this article, we are going to solve
 In this task, we are given a string, and our goal is to find the length of the longest substring that has no repeated
 characters in it. 
 
+Let's put a couple of input and expecter results:
+
+| Input string | Longest substring | Longest substring's length |
+|:------------:|:-----------------:|:--------------------------:|
+|   aaaabbbb   |        ab         |             2              |
+|  qazqazqzq   |        qaz        |             3              |
+|   ababcdww   |       abcd        |             4              |
+|    abcde     |       abcd        |             4              |
+
 ## Solution
 ### Simple solution
 An easy way to address this is to split the task into two steps:
