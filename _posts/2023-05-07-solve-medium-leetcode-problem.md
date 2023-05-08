@@ -45,7 +45,8 @@ public class Solution {
 }
 ```
 
-Now that we have a clear vision of the main steps needed, let's implement the private methods.
+Now that we have a clear vision of the main steps needed, let's implement the private methods. We will discuss 
+the details just after the snippet bellow.
 
 ```java
 public class Solution {
@@ -87,3 +88,10 @@ public class Solution {
     }
 }
 ```
+
+Shall we dive into the details and analyze the complexity of the algorithm?
+
+Firstly, `findAllSubstrings` method creates a set of all the possible substrings for the given input string. 
+The outer loop picks letters which will be used as the first letter for substrings. The inner loop finds all substrings
+for a given first letter. We also make sure the input strings is not stored in the resulting set at the end 
+of the method.
