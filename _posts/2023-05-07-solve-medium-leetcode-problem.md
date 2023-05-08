@@ -47,3 +47,28 @@ public class Solution {
     }
 }
 ```
+Now that we have a clear vision of the steps needed, let's implement the private methods.
+
+```java
+public class Solution {
+    
+    public int lengthOfLongestSubstring(String input) {
+        Set<String> substrings = findAllSubstrings(input);
+        return findLengthOfLongestSubstring(substrings);
+    }
+    
+    private Set<String> findAllSubstrings(String input) {
+        Set<String> substrings = new HashSet<>();
+        for (int beginIndex = 0; beginIndex < input.length(); beginIndex++) {
+            for (int endIndex = beginIndex; endIndex < input.length(); endIndex++) {
+                String substring = input.subtring(beginIndex, endIndex + 1);
+                substrings.add(substring);
+            }
+        }
+    }
+
+    private int findLengthOfLongestSubstring(Set<String> substrings) {
+      // Implement me
+    }
+}
+```
