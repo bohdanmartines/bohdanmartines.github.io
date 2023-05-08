@@ -1,5 +1,5 @@
 ---
-title: Solve medium LeetCode problem
+title: Solve Medium LeetCode Problem
 date: 2023-05-07 19:35 +0300
 ---
 In this article, we are going to solve
@@ -9,7 +9,7 @@ In this article, we are going to solve
 In this task, we are given a string, and our goal is to find the length of the longest substring that has no repeated
 characters in it. 
 
-Let's put a couple of input and expecter results:
+Let's put a couple of sets of the input and expected result:
 
 | Input string | Longest substring | Longest substring's length |
 |:------------:|:-----------------:|:--------------------------:|
@@ -28,4 +28,22 @@ current longest substring
 To implement this approach, we will need two nested for-loops for the first step, also a var to store the current
 longest substring's length and one more for-loop for the second step.
 
-Let's get to it!
+To start with, let's create a skeleton for the methods and invoke them. This will give you an idea about the algorithm.
+
+```java
+public class Solution {
+    
+    public int lengthOfLongestSubstring(String input) {
+        Set<String> substrings = findAllSubstrings(input);
+        return findLengthOfLongestSubstring(substrings);
+    }
+    
+    private Set<String> findAllSubstrings(String input) {
+      // Implement me
+    }
+
+    private int findLengthOfLongestSubstring(Set<String> substrings) {
+      // Implement me
+    }
+}
+```
