@@ -15,7 +15,7 @@ Let's put a couple of sets of the input and expected result:
 |:------------:|:-----------------:|:--------------------------:|
 |   aaaabbbb   |        ab         |             2              |
 |  qazqazqzq   |        qaz        |             3              |
-|   ababcdww   |       abcd        |             4              |
+|   ababcdww   |       abcd        |             5              |
 |    abcde     |       abcd        |             4              |
 
 ## Solution
@@ -52,23 +52,40 @@ Now that we have a clear vision of the steps needed, let's implement the private
 ```java
 public class Solution {
     
-    public int lengthOfLongestSubstring(String input) {
+    public static int lengthOfLongestSubstring(String input) {
         Set<String> substrings = findAllSubstrings(input);
         return findLengthOfLongestSubstring(substrings);
     }
     
-    private Set<String> findAllSubstrings(String input) {
+    private static Set<String> findAllSubstrings(String input) {
         Set<String> substrings = new HashSet<>();
         for (int beginIndex = 0; beginIndex < input.length(); beginIndex++) {
             for (int endIndex = beginIndex; endIndex < input.length(); endIndex++) {
-                String substring = input.subtring(beginIndex, endIndex + 1);
+                String substring = input.substring(beginIndex, endIndex + 1);
                 substrings.add(substring);
             }
         }
+        // We'll remove the input string from the set, as we don't it as a substring
+        substrings.remove(input);
+        return substrings;
     }
 
-    private int findLengthOfLongestSubstring(Set<String> substrings) {
-      // Implement me
+    private static int findLengthOfLongestSubstring(Set<String> substrings) {
+        int maxLength = 0;
+        for (String substring: substrings) {
+            if (hasOnlyUniqueChars(substring) && substring.length() > maxLength) {
+                maxLength = substring.length();
+            }
+        }
+        return maxLength;
+    }
+    
+    private static boolean hasOnlyUniqueChars(String substring) {
+        char[] stringChars = substring.toCharArray();
+        Set<Character> uniqueChars = IntStream.range(0, stringChars.length)
+            .mapToObj(i -> stringChars[i])
+            .collect(Collectors.toSet());
+        return stringChars.length == uniqueChars.size();
     }
 }
 ```
