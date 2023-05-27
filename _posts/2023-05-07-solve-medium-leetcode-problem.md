@@ -109,6 +109,9 @@ The second iteration takes letter `b` and these are the corresponding substrings
 Again, only the first two have unique characters and will be added to the set pf substrings.
 And so on for the rest of letters in the input.
 
+This image shows how substrings for each letter (iteration). Invalid substrings are shown in grey.
+![Desktop View](/assets/2023-05-27/Medium LeetCode task.v3.png){: width="972" height="589" }
+
 If we consider each letter in the input string as a substring start letter, this will be the total number of substrings:
 ```
 (O(N^2) - 1) + (O(N^2) - 1) + (O(N^2) - 2) + (O(N^2) - 3) + ... + 2 + 1
