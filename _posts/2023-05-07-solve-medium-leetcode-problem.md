@@ -110,7 +110,7 @@ The second iteration takes letter `b` and these are the corresponding substrings
 Again, only the first two have unique characters and will be added to the set pf substrings.
 And so on for the rest of letters in the input.
 
-This image shows how substrings for each letter (iteration). Invalid substrings are shown in grey.
+This image shows how substrings for each letter (iteration). Invalid substrings are shown in grey. Please remember that set ignores duplicate elements.
 ![Desktop View](/assets/2023-05-27/Medium LeetCode task.v3.png){: width="972" height="589" }
 
 The total number of substrings this method will create and validate is: 
