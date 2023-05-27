@@ -1,6 +1,7 @@
 ---
 title: Solve Medium LeetCode Problem
 date: 2023-05-07 19:35 +0300
+math: true
 ---
 In this article, we are going to solve
 [this problem](https://leetcode.com/problems/longest-substring-without-repeating-characters/) from LeetCode.
@@ -115,8 +116,6 @@ This image shows how substrings for each letter (iteration). Invalid substrings 
 Going to the next method, `findLengthOfLongestSubstring` is a simple peace of code which iterates over the valid substrings and finds the length of the longest one. 
 
 The total number of iterations this algorithm will create and validate is: 
-```
-(O(N^2) - 1) + (O(N^2) - 1) + (O(N^2) - 2) + (O(N^2) - 3) + ... + 2 + 1
-```
-This is known to be O(N<sup>2</sup>)/2, of which the O(N<sup>2</sup>) part is important in terms of algorithm complexity.
+$$ N + (N - 1) + (N) - 2) + (N - 3) + ... + 2 + 1 $$
 
+This is known to be $$ O(N^2/2) $$, of which the $$ O(N^2) $$ part is important in terms of algorithm complexity.
