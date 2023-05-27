@@ -105,7 +105,7 @@ as those are not valid according to the task.
 Let's consider an example when we have `ababcdww` as the input word. 
 The first iteration will take letter `a` and find such substrings: `a`, `ab`, `aba`, `abab`, `ababc`, `ababcd` and `ababcdw`
 (`ababcdww` is ignored as it is the whole initial string rather than a substring). From this list, only the first two have unique
-letters, the rest will be ignored.
+letters, the rest substrings will be ignored.
 The second iteration takes letter `b` and these are the corresponding substrings `b`, `ba`, `bab`, `babc`, `babcd`, `babcdw`, `babcdww`.
 Again, only the first two have unique characters and will be added to the set pf substrings.
 And so on for the rest of letters in the input.
