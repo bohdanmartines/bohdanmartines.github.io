@@ -71,6 +71,15 @@ public class Solution {
         return substrings;
     }
 
+  private static boolean hasOnlyUniqueChars(String substring) {
+    char[] stringChars = substring.toCharArray();
+    Set<Character> uniqueChars = new HashSet<>();
+    for (char stringChar : stringChars) {
+      uniqueChars.add(stringChar);
+    }
+    return stringChars.length == uniqueChars.size();
+  }
+
     private static int findLengthOfLongestSubstring(Set<String> substrings) {
         int maxLength = 0;
         for (String substring: substrings) {
@@ -79,15 +88,6 @@ public class Solution {
             }
         }
         return maxLength;
-    }
-    
-    private static boolean hasOnlyUniqueChars(String substring) {
-        char[] stringChars = substring.toCharArray();
-        Set<Character> uniqueChars = new HashSet<>();
-        for (char stringChar : stringChars) {
-          uniqueChars.add(stringChar);
-        }
-        return stringChars.length == uniqueChars.size();
     }
 }
 ```
