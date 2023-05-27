@@ -61,7 +61,9 @@ public class Solution {
         for (int beginIndex = 0; beginIndex < input.length(); beginIndex++) {
             for (int endIndex = beginIndex; endIndex < input.length(); endIndex++) {
                 String substring = input.substring(beginIndex, endIndex + 1);
-                substrings.add(substring);
+                if (hasOnlyUniqueChars(substring)) {
+                    substrings.add(substring);
+                }
             }
         }
         // We'll remove the input string from the set, as we don't it as a substring
@@ -72,7 +74,7 @@ public class Solution {
     private static int findLengthOfLongestSubstring(Set<String> substrings) {
         int maxLength = 0;
         for (String substring: substrings) {
-            if (hasOnlyUniqueChars(substring) && substring.length() > maxLength) {
+            if (substring.length() > maxLength) {
                 maxLength = substring.length();
             }
         }
@@ -94,9 +96,10 @@ public class Solution {
 
 Shall we dive into the details and analyze the complexity of the algorithm?
 
-Firstly, `findAllSubstrings` method creates a set of all the possible substrings for the given input string. 
-Each iteration of the outer loop takes a letter from the input, while the inner loop finds all substrings starting with
-this letter.
+Firstly, `findAllSubstrings` method creates a set of valid substrings for the given input string. 
+Each iteration of the outer loop takes a letter from the input, while the inner loop finds substrings starting with
+this letter. Substrings with duplicated characters are ignored to not consume extra memory,
+as those substrings are not valid according to the task.
 
 Let's consider an example when we have `abbde` as the input word. 
 The first iteration will take letter `a` and find such substrings: `a`, `ab`, `abb` and `abbd`
