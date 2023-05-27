@@ -3,7 +3,8 @@ title: Solve Medium LeetCode Problem
 date: 2023-05-07 19:35 +0300
 ---
 In this article, we are going to solve
-[this problem](https://leetcode.com/problems/longest-substring-without-repeating-characters/) from LeetCode
+[this problem](https://leetcode.com/problems/longest-substring-without-repeating-characters/) from LeetCode.
+We will focus on a simple solution and will analyze what its complexity.
 
 ## Problem
 According to the task, we are given a string, and our goal is to find the length of the longest substring that has no repeated
