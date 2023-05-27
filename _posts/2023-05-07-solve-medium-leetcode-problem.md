@@ -119,3 +119,7 @@ The total number of iterations this algorithm will create and validate is:
 $$ N + (N - 1) + (N) - 2) + (N - 3) + ... + 2 + 1 $$
 
 This is known to be $$ O(N^2/2) $$, of which the $$ O(N^2) $$ part is important in terms of algorithm complexity.
+
+`findLengthOfLongestSubstring` makes a call to `hasOnlyUniqueChars` on each inner loop iteration. The latter method iterates over
+letters of a substring. Since an average substring has length of $$ N/2 $$, it gives us the complexity of `findLengthOfLongestSubstring` as
+$$ O(N^2) * O(N/2) $$, which is $$ O(N^2) * O(N) $$ in terms if complexity, and it is equal to $$O(N^3)$$.
