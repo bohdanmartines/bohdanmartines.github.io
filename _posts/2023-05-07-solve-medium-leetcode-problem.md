@@ -114,7 +114,7 @@ This image shows how substrings for each letter (iteration). Invalid substrings 
 
 Going to the next method, `findLengthOfLongestSubstring` is a simple peace of code which iterates over the valid substrings and finds the length of the longest one. 
 
-If we consider each letter in the input string as a substring start letter, this will be the total number of substrings:
+The total number of iterations this algorithm will create and validate is: 
 ```
 (O(N^2) - 1) + (O(N^2) - 1) + (O(N^2) - 2) + (O(N^2) - 3) + ... + 2 + 1
 ```
