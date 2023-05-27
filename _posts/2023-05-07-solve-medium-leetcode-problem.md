@@ -6,10 +6,10 @@ In this article, we are going to solve
 [this problem](https://leetcode.com/problems/longest-substring-without-repeating-characters/) from LeetCode
 
 ## Problem
-According to the tasks, we are given a string, and our goal is to find the length of the longest substring that has no repeated
+According to the task, we are given a string, and our goal is to find the length of the longest substring that has no repeated
 characters in it. 
 
-Let's put a couple of sets of the input and expected result:
+Let's put a sets of example inputs and corresponding expected results:
 
 | Input string | Longest substring | Longest substring's length |
 |:------------:|:-----------------:|:--------------------------:|
