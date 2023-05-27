@@ -124,6 +124,6 @@ This is known to be $$ O(N^2/2) $$, of which the $$ O(N^2) $$ part is important 
 letters of a substring. Since an average substring has length of $$ N/2 $$, it gives us the complexity of `findLengthOfLongestSubstring` as
 $$ O(N^2) * O(N/2) $$, which is $$ O(N^2) * O(N) $$ in terms if complexity, and it is equal to $$O(N^3)$$.
 
-As for the complexity of `findLengthOfLongestSubstring`, it will be less than the above, because the set of substring has less
+As for the complexity of `findLengthOfLongestSubstring`, it will be less than the above, because the set of substrings has less
 elements than total number of substrings checked by the first method. Thus, the total complexity of the whole algorithm is 
 $$ O(N^3) $$
