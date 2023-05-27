@@ -98,9 +98,10 @@ Firstly, `findAllSubstrings` method creates a set of all the possible substrings
 Each iteration of the outer loop takes a letter from the input, while the inner loop finds all substrings starting with
 this letter.
 
-Let's consider an example when we have `abcde` as the input word. 
-The first iteration will take letter `a` and find such substrings: `a`, `ab`, `abc`, `abcd` and `abcde`.
-The second iteration takes letter `b` and these are the corresponding substrings `b`, `bc`, `bcd` and `bcde`. And so on.
+Let's consider an example when we have `abbde` as the input word. 
+The first iteration will take letter `a` and find such substrings: `a`, `ab`, `abb` and `abbd`
+(`abbde` is ignored as it is the whole input string rather than a substring).
+The second iteration takes letter `b` and these are the corresponding substrings `b`, `bb`, `bbd` and `bbde`. And so on.
 
 If we consider each letter in the input string as a substring start letter, this will be the total number of substrings:
 ```
