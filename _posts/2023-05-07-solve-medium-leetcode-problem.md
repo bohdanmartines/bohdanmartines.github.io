@@ -113,7 +113,7 @@ And so on for the rest of letters in the input.
 This image shows how substrings for each letter (iteration). Invalid substrings are shown in grey.
 ![Desktop View](/assets/2023-05-27/Medium LeetCode task.v3.png){: width="972" height="589" }
 
-The total number of iterations this algorithm will create and validate is: 
+The total number of substrings this method will create and validate is: 
 $$ N + (N - 1) + (N) - 2) + (N - 3) + ... + 2 + 1 $$
 
 This is known to be $$ O(N^2/2) $$, of which the $$ O(N^2) $$ part is important in terms of algorithm complexity.
