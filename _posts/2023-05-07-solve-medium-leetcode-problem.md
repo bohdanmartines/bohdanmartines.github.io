@@ -99,12 +99,15 @@ Shall we dive into the details and analyze the complexity of the algorithm?
 Firstly, `findAllSubstrings` method creates a set of valid substrings for the given input string. 
 Each iteration of the outer loop takes a letter from the input, while the inner loop finds substrings starting with
 this letter. Substrings with duplicated characters are ignored to not consume extra memory,
-as those substrings are not valid according to the task.
+as those are not valid according to the task.
 
-Let's consider an example when we have `abbde` as the input word. 
-The first iteration will take letter `a` and find such substrings: `a`, `ab`, `abb` and `abbd`
-(`abbde` is ignored as it is the whole input string rather than a substring).
-The second iteration takes letter `b` and these are the corresponding substrings `b`, `bb`, `bbd` and `bbde`. And so on.
+Let's consider an example when we have `ababcdww` as the input word. 
+The first iteration will take letter `a` and find such substrings: `a`, `ab`, `aba`, `abab`, `ababc`, `ababcd` and `ababcdw`
+(`abbde` is ignored as it is the whole input string rather than a substring). From this list, only the first two have unique
+letter, the rest will be ignored.
+The second iteration takes letter `b` and these are the corresponding substrings `b`, `ba`, `bab`, `babc`, `babcd`, `babcdw`, `babcdww`.
+Again, only the first two have unique characters and will be added to the set pf substrings.
+And so on for the rest of letters in the input.
 
 If we consider each letter in the input string as a substring start letter, this will be the total number of substrings:
 ```
