@@ -120,7 +120,7 @@ This is known to be $$ O(N^2/2) $$, of which the $$ O(N^2) $$ part is important 
 
 `findLengthOfLongestSubstring` makes a call to `hasOnlyUniqueChars` on each inner loop iteration. The latter method iterates over
 letters of a substring. Since an average substring has length of $$ N/2 $$, it gives us the complexity of `findLengthOfLongestSubstring` as
-$$ O(N^2) * O(N/2) $$, which is $$ O(N^2) * O(N) $$ in terms if complexity, and it is equal to $$O(N^3)$$.
+$$ O(N^2) * O(N/2) $$, which is $$ O(N^2) * O(N) $$ in terms of complexity, and it is equal to $$O(N^3)$$.
 
 As for the complexity of `findLengthOfLongestSubstring`, it will be less than the above, because the set of substrings has less
 elements than total number of substrings checked by the first method. Thus, the total complexity of the whole algorithm is 
