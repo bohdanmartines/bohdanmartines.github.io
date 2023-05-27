@@ -129,6 +129,7 @@ $$ O(N^3) $$
 ## Conslusion
 
 Congratulations! We have just solved a medium task. Wasn't it fascinating?
+
 We tried to invent a simple implementation, which is easy to invent and understand.
 The drawback of it is that the algorithm complexity is quite high. While the input string is short this may have not difference,
 but with longer strings it can become a performance concern.
