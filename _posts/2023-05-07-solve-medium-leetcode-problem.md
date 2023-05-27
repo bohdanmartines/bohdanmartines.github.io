@@ -20,7 +20,7 @@ Let's put a sets of example inputs and corresponding expected results:
 |   ababcdww   |       abcdw       |             5              |
 |    abcde     |       abcd        |             4              |
 
-## Simple solution
+## Solution
 An easy way to address this is to split the task into two steps:
 1. Find all possible substrings for a given string
 2. For each of the substrings, check if it has repeating characters and if its length is greater than the length of the
@@ -125,3 +125,13 @@ $$ O(N^2) * O(N/2) $$, which is $$ O(N^2) * O(N) $$ in terms of complexity, and 
 As for the complexity of `findLengthOfLongestSubstring`, it will be less than the above, because the set of substrings has less
 elements than total number of substrings checked by the first method. Thus, the total complexity of the whole algorithm is 
 $$ O(N^3) $$
+
+## Conslusion
+
+Congratulations! We have just solved a medium task. Wasn't it fascinating?
+We tried to invent a simple implementation, which is easy to invent and understand.
+The drawback of it is that the algorithm complexity is quite high. While the input string is short this may have not difference,
+but with longer strings it can become a performance concern.
+In the next post, we will discuss how to make the algorithm faster.
+
+See you later and happy coding!
