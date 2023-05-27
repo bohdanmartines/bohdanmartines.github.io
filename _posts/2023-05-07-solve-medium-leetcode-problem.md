@@ -112,6 +112,8 @@ And so on for the rest of letters in the input.
 This image shows how substrings for each letter (iteration). Invalid substrings are shown in grey.
 ![Desktop View](/assets/2023-05-27/Medium LeetCode task.v3.png){: width="972" height="589" }
 
+Going to the next method, `findLengthOfLongestSubstring` is a simple peace of code which iterates over the valid substrings and finds the length of the longest one. 
+
 If we consider each letter in the input string as a substring start letter, this will be the total number of substrings:
 ```
 (O(N^2) - 1) + (O(N^2) - 1) + (O(N^2) - 2) + (O(N^2) - 3) + ... + 2 + 1
