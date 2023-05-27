@@ -16,7 +16,7 @@ Let's put a sets of example inputs and corresponding expected results:
 |:------------:|:-----------------:|:--------------------------:|
 |   aaaabbbb   |        ab         |             2              |
 |  qazqazqzq   |        qaz        |             3              |
-|   ababcdww   |       abcd        |             5              |
+|   ababcdww   |       abcdw       |             5              |
 |    abcde     |       abcd        |             4              |
 
 ## Simple solution
