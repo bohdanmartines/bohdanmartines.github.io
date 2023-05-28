@@ -3,11 +3,16 @@ title: Solve Medium LeetCode Problem
 date: 2023-05-07 19:35 +0300
 math: true
 ---
+
+Hello, dear reader!
+
 In this article, we are going to solve
-[this problem](https://leetcode.com/problems/longest-substring-without-repeating-characters/) from LeetCode.
-We will focus on a simple solution and will analyze what its complexity is.
+[a medium level problem](https://leetcode.com/problems/longest-substring-without-repeating-characters/) from LeetCode.
+We will focus on a simple solution and will analyze what its complexity is. Let's go for it!
 
 ## Problem
+First of all, we need to have a clear view of what the task is and what is expected from us.
+
 According to the task, we are given a string, and our goal is to find the length of the longest substring that has no repeated
 characters in it. 
 
@@ -21,12 +26,12 @@ Let's put a sets of example inputs and corresponding expected results:
 |    abcde     |       abcd        |             4              |
 
 ## Solution
-An easy way to address this is to split the task into two steps:
-1. Find all possible substrings for a given string
-2. For each of the substrings, check if it has repeating characters and if its length is greater than the length of the
-current longest substring
+An obvious way to address this is to split the task into two steps:
+1. Find all possible substrings for a given string. Filter out those that have repeated letters.
+2. For each of the substrings, find its length. Return the biggest length
 
-To start with, let's create a skeleton for the methods and invoke them. This will give you an idea about the algorithm.
+This sounds simple enough, doesn't it?
+Next thing, let's create a skeleton for the methods and invoke them. This will give you an idea about the algorithm.
 
 ```java
 public class Solution {
