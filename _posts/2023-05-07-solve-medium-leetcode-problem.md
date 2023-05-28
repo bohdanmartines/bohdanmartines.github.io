@@ -129,8 +129,9 @@ $$ N + (N - 1) + (N - 2) + (N - 3) + ... + 2 + 1 $$
 
 This is known to be $$ O(N^2/2) $$, of which the $$ O(N^2) $$ part is important in terms of algorithm complexity.
 
-`findLengthOfLongestSubstring` makes a call to `hasOnlyUniqueChars` on each inner loop iteration. The latter method iterates over
-letters of a substring. Since an average substring has length of $$ N/2 $$, it gives us the complexity of `findLengthOfLongestSubstring` as
+`findLengthOfLongestSubstring` makes a call to `hasOnlyUniqueChars` on each inner loop iteration.
+The latter method iterates over letters of a substring.
+Since an average substring length will be close to $$ N/2 $$, `findLengthOfLongestSubstring` becomes
 $$ O(N^2) * O(N/2) $$, which is $$ O(N^2) * O(N) $$ in terms of complexity, and it is equal to $$O(N^3)$$.
 
 As for the complexity of `findLengthOfLongestSubstring`, it will be less than the above, because the set of substrings has less
