@@ -119,7 +119,7 @@ This process will be repeated for the rest of letters in the input.
 
 This image below provides a visualisation of how substrings for each letter (iteration) are discovered.
 Invalid substrings are shown in grey. Please remember that sets ignore duplicate elements.
-![Desktop View](/assets/2023-05-27/Medium LeetCode task.v4.png){: width="972" height="589" }
+![Desktop View](/assets/2023-05-27/Medium LeetCode task.png){: width="972" height="589" }
 
 I hope that this made the low level details clear.
 Next let's do a little bit of math, and we are almost done. 
