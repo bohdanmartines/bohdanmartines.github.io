@@ -24,7 +24,7 @@ Let's put a sets of example inputs and corresponding expected results:
 |   aaaabbbb   |        ab         |             2              |
 |  qazqazqzq   |        qaz        |             3              |
 |   ababcdww   |       abcdw       |             5              |
-|    abcde     |       abcd        |             4              |
+|    abcde     |       abcde       |             5              |
 
 ## Solution
 An obvious way to address this is to split the task into two steps:
@@ -73,8 +73,6 @@ public class Solution {
                 }
             }
         }
-        // We'll remove the input string from the set, as it's not a substring
-        substrings.remove(input);
         return substrings;
     }
 
@@ -109,11 +107,10 @@ This method creates a set of valid substrings for the given input string by mean
 Each iteration of the outer loop takes a letter from the input, while the inner loop finds substrings starting with
 this letter. Substrings with duplicated characters are ignored as we don't need to consider them.
 
-Let's consider an example when we have `ababcdww` as the input word. 
+Let's look at an example when we have `ababcdww` as the input word. 
 
-The first iteration will take letter `a` and find such substrings: `a`, `ab`, `aba`, `abab`, `ababc`, `ababcd` and `ababcdw`
-(`ababcdww` is ignored as it is the whole initial string rather than a substring). From this list, only the first two have unique
-letters, the rest substrings will be ignored.
+The first iteration will take letter `a` and find such substrings: `a`, `ab`, `aba`, `abab`, `ababc`, `ababcd`, `ababcdw` and `ababcdww`.
+From this list, only the first two have unique letters, the rest substrings will be ignored.
 
 The second iteration takes letter `b` and these are the corresponding substrings `b`, `ba`, `bab`, `babc`, `babcd`, `babcdw`, `babcdww`.
 Again, only the first two have unique characters and will be added to the set of substrings.
