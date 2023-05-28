@@ -101,6 +101,7 @@ public class Solution {
 ## Explanation and complexity
 
 Shall we dive into the details and analyze the complexity of the algorithm?
+
 ### `findAllSubstrings`
 
 This method creates a set of valid substrings for the given input string by means of a nested for-loop.
@@ -134,7 +135,8 @@ The latter method iterates over letters of a substring.
 Since an average substring length will be close to $$ N/2 $$, `findLengthOfLongestSubstring` becomes
 $$ O(N^2) * O(N/2) $$, which is $$ O(N^2) * O(N) $$ in terms of complexity, and it is equal to $$O(N^3)$$.
 
-As for the complexity of `findLengthOfLongestSubstring`, it will be less than the above, because the set of substrings has less
+### `findLengthOfLongestSubstring`
+As for the complexity of `findLengthOfLongestSubstring`, it will be less than the above, because the set of substrings has fewer
 elements than total number of substrings checked by the first method. Thus, the total complexity of the whole algorithm is 
 $$ O(N^3) $$
 
