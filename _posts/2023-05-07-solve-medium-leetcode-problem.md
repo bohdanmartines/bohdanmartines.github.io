@@ -1,6 +1,7 @@
 ---
 title: Solve Medium LeetCode Problem
 date: 2023-05-07 19:35 +0300
+categories: [Coding, Tasks]
 math: true
 ---
 
