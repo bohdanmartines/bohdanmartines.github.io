@@ -38,11 +38,11 @@ Next thing, let's create a skeleton for the methods and invoke them. This will g
 public class Solution {
     
     public int lengthOfLongestSubstring(String input) {
-        Set<String> substrings = findAllSubstrings(input);
+        Set<String> substrings = findValidSubstrings(input);
         return findLengthOfLongestSubstring(substrings);
     }
     
-    private Set<String> findAllSubstrings(String input) {
+    private Set<String> findValidSubstrings(String input) {
       // Implement me
     }
 
@@ -59,11 +59,11 @@ the details in the next section.
 public class Solution {
     
     public static int lengthOfLongestSubstring(String input) {
-        Set<String> substrings = findAllSubstrings(input);
+        Set<String> substrings = findValidSubstrings(input);
         return findLengthOfLongestSubstring(substrings);
     }
     
-    private static Set<String> findAllSubstrings(String input) {
+    private static Set<String> findValidSubstrings(String input) {
         Set<String> substrings = new HashSet<>();
         for (int beginIndex = 0; beginIndex < input.length(); beginIndex++) {
             for (int endIndex = beginIndex; endIndex < input.length(); endIndex++) {
@@ -103,7 +103,7 @@ public class Solution {
 
 Shall we dive into the details and analyze the complexity of the algorithm?
 
-### `findAllSubstrings`
+### `findValidSubstrings`
 
 This method creates a set of valid substrings for the given input string by means of a nested for-loop.
 Each iteration of the outer loop takes a letter from the input, while the inner loop finds substrings starting with
@@ -131,9 +131,9 @@ $$ N + (N - 1) + (N - 2) + (N - 3) + ... + 2 + 1 $$
 
 This is known to be $$ O(N^2/2) $$, of which the $$ O(N^2) $$ part is important in terms of algorithm complexity.
 
-`findLengthOfLongestSubstring` makes a call to `hasOnlyUniqueChars` on each inner loop iteration.
+`findValidSubstrings` makes a call to `hasOnlyUniqueChars` on each inner loop iteration.
 The latter method iterates over letters of a substring.
-Since an average substring length will be close to $$ N/2 $$, `findLengthOfLongestSubstring` becomes
+Since an average substring length will be close to $$ N/2 $$, `findValidSubstrings` becomes
 $$ O(N^2) * O(N/2) $$, which is $$ O(N^2) * O(N) $$ in terms of complexity, and it is equal to $$O(N^3)$$.
 
 ### `findLengthOfLongestSubstring`
