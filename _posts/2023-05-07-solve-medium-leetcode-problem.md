@@ -101,24 +101,30 @@ public class Solution {
 ## Explanation and complexity
 
 Shall we dive into the details and analyze the complexity of the algorithm?
+### `findAllSubstrings`
 
-Firstly, `findAllSubstrings` method creates a set of valid substrings for the given input string. 
+This method creates a set of valid substrings for the given input string by means of a nested for-loop.
 Each iteration of the outer loop takes a letter from the input, while the inner loop finds substrings starting with
-this letter. Substrings with duplicated characters are ignored to not consume extra memory,
-as those are not valid according to the task.
+this letter. Substrings with duplicated characters are ignored as we don't need to consider them.
 
 Let's consider an example when we have `ababcdww` as the input word. 
+
 The first iteration will take letter `a` and find such substrings: `a`, `ab`, `aba`, `abab`, `ababc`, `ababcd` and `ababcdw`
 (`ababcdww` is ignored as it is the whole initial string rather than a substring). From this list, only the first two have unique
 letters, the rest substrings will be ignored.
+
 The second iteration takes letter `b` and these are the corresponding substrings `b`, `ba`, `bab`, `babc`, `babcd`, `babcdw`, `babcdww`.
-Again, only the first two have unique characters and will be added to the set pf substrings.
-And so on for the rest of letters in the input.
+Again, only the first two have unique characters and will be added to the set of substrings.
+This process will be repeated for the rest of letters in the input.
 
-This image shows how substrings for each letter (iteration) are discovered. Invalid substrings are shown in grey. Please remember that sets ignore duplicate elements.
-![Desktop View](/assets/2023-05-27/Medium LeetCode task.v3.png){: width="972" height="589" }
+This image below provides a visualisation of how substrings for each letter (iteration) are discovered.
+Invalid substrings are shown in grey. Please remember that sets ignore duplicate elements.
+![Desktop View](/assets/2023-05-27/Medium LeetCode task.v4.png){: width="972" height="589" }
 
-The total number of substrings this method will create and validate is: 
+I hope that this made the low level details clear.
+Next let's do a little bit of math, and we are almost done. 
+
+The total number of substrings this method creates and validates is: 
 $$ N + (N - 1) + (N - 2) + (N - 3) + ... + 2 + 1 $$
 
 This is known to be $$ O(N^2/2) $$, of which the $$ O(N^2) $$ part is important in terms of algorithm complexity.
