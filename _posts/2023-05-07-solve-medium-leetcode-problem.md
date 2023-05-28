@@ -51,7 +51,7 @@ public class Solution {
 }
 ```
 
-Now that we have a clear vision of the main steps needed, let's implement the private methods. We will discuss 
+Now that we see what the main steps are involved, let's implement the private methods. We will discuss 
 the details in the next section.
 
 ```java
@@ -72,7 +72,7 @@ public class Solution {
                 }
             }
         }
-        // We'll remove the input string from the set, as we don't it as a substring
+        // We'll remove the input string from the set, as it's not a substring
         substrings.remove(input);
         return substrings;
     }
