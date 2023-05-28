@@ -10,4 +10,3 @@ I am glad to welcome you on this blog as you are reading my very first post here
 The plan for this website is to create a couple of small projects, solve coding tasks and share my experience with you.
 
 See you later in the new updates!
-
