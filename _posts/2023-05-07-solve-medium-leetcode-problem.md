@@ -97,7 +97,7 @@ public class Solution {
 }
 ```
 
-## Explanation and complexity
+## Explanation and time complexity
 
 Shall we dive into the details and analyze the complexity of the algorithm?
 
@@ -138,13 +138,31 @@ As for the complexity of `findLengthOfLongestSubstring`, it will be less than th
 elements than total number of substrings checked by the first method. Thus, the total complexity of the whole algorithm is 
 $$ O(N^3) $$
 
-## Conslusion
+Alright, let's take a pause and look back. What we've discussed so far is actually the time complexity.
+You might ask about the space complexity of our solution, and it is an absolutely valid question.
+Let's talk about it in the following chapter.
+
+## Space complexity
+Space complexity helps us understand how the needed space changes depending on the input data.
+
+How do we figure it out for our case?
+The selected approach uses an auxiliary set for storing the substrings.
+Essentially, the answer to the above question will be how big this set can get.
+
+We've already discussed that the implementation generates $$ O(N^2) $$ substrings. 
+In the worst case the set will end up having all these substrings. 
+The worst case is when each substring is unique and when none of them has duplicated letters.
+
+Again, the length of substrings can vary and is roughly $$ N/2 $$. This gives us space complexity $$O(N^3)$$.
+Here both time and space complexities have the same values but that's not necessarily the case for every algorithm.
+
+## Conclusion
 
 Congratulations! We have just solved a medium task. Wasn't it fascinating?
 
-We created a simple implementation, which is easy to invent and understand.
-We need to keep in mind that the complexity of this algorithm is quite high. While the input string is short this may have no difference,
-but with longer inputs it can become a performance concern.
+We have created a simple implementation, which is easy to invent and understand.
+We need to keep in mind that the time and space complexities of this algorithm are quite high.
+While the input string is short this may have no difference, but with longer inputs it can become a performance amd memory concern.
 In the next post, we will discuss how to make the algorithm faster.
 
 See you later and happy coding!
