@@ -157,6 +157,6 @@ This change came with an updated logic that probably needs a little bit more tim
 However, this is 100% worth it, as the new version of our program is much more resilient. 
 
 Running a couple of measurements shows us that the new version can easily handle strings of tens of thousand of characters,
-while the initial versions gets very slow at something after two thousands.
+while the initial version gets very slow at something after two thousands.
 
 That's all for today, hope you enjoyed it. Have a good day and see you next time!
