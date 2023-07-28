@@ -27,7 +27,7 @@ Can we do anything with it?
 In terms of space, the main source of memory consumption is the ancillary substring set. Ideally, we would like to get rid of it.
 This is possible if we change our implementation to not collect the substrings.
 
-We can achieve this by introducing a new variable for tracking the current maximin substring length and checking length for new substrings as soon as we generate them.
+We can achieve this by introducing a new variable for tracking the current maximum substring length and checking length for new substrings as soon as we generate them.
 Here is how our implementation can look like.
 
 ```java
@@ -52,10 +52,8 @@ public class Solution {
 }
 ```
 Such approach replaces the internal substring set with one simple integer variable for storing the maximum length.
-This immediately drops the space complexity down to $$ O(1) $$.
-
-It means that regardless of how large the input string is (and how many possible substrings can be there), we will always use additional space only to store one integer.
-That's ideal!
+The integer will always require $$ O(1) $$ memory.
+Apart from that, we still have a call to `hasOnlyUniqueChars` which at any point of execution will use not more than $$ O(N) $$ space.
 
 ### Time
 If we run the current solution with huge inputs of a couple of thousands length, the execution time will grow to a couple of seconds.
@@ -141,18 +139,21 @@ Now that we have the new implementation in place, we can see its impact on effic
 To determine the time complexity, we need to assess how the number of actions changes depending on the input.
 Actions in our approach are done for each move of a pointer.
 
-Each of the pointers can do at max N steps moving along the input string. 
-This gives us $$ O(N) + O(N) = O(2N) $$, which, as we already know, gives us $$ O(N) $$ in the world of complexity.
+Each of the pointers can do at max N steps moving along the input string.
+These steps will also call `hasOnlyUniqueChars` which in turn makes $$ O(N) $$ operations.
+This gives us $$ (O(N) + O(N)) * O(N) = O(2N) * O(N) = O(2N^2) $$, which, as we already know, results in $$ O(N^2) $$ in the world of complexity.
+
 
 ### Space
-Here we utilize the improvement discussed above and use only one integer variable to store data calculated dynamically (that is max length).
-This allows us to achieve constant space complexity, or $$ O(1) $$.
+Here we utilize the improvement discussed above. We replace the set with one integer variable to store the max length.
+And the main part consuming memory now is `hasOnlyUniqueChars` method.
+Overall space complexity is $$ O(N) $$.
 
 ## Conclusion
 
 We have significantly improved our code in terms of both time and space.
-The method of two pointers enabled us to decrease the time complexity from $$ O(N^3) $$ to $$ O(N) $$, which is a huge improvement.
-The space complexity now is $$ O(1) $$, and this is the best possible one.
+The method of two pointers enabled us to decrease the time complexity from $$ O(N^3) $$ to $$ O(N^2) $$, which is a noticeable improvement.
+The space complexity now moved from $$ O(N^3) $$ to $$ O(N) $$, and this is also a huge step forward.
 This change came with an updated logic that probably needs a little bit more time to understand. 
 However, this is 100% worth it, as the new version of our program is much more resilient. 
 
