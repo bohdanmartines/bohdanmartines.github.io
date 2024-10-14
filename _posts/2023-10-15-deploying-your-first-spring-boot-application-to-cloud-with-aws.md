@@ -26,7 +26,7 @@ Let’s get started!
 ### Initialize application
 
 To get started, we’ll create a simple Spring Boot project. Go to [Spring Initializer page](https://start.spring.io/),
-select **Maven** as project type, and chose **Spring Web** in the dependency list. Once you’re done, hit **Generate**
+select **Maven** as the project type, and choose **Spring Web** in the dependency list. Once you’re done, hit **Generate**
 button.
 This will download for you a Spring Boot project containing a single class `DemoApplication`, which is the main entry
 point for your application.
@@ -109,7 +109,7 @@ Next, select `Amazon Linux` in **Application and OS Images** section
 ![OS Image](/assets/2024-10-15/os_image.png){: width="450" }
 
 The default option, **Amazon Linux 2023 AMI**, is perfect for our use case.
-Under **Instance Type** we can leave `t2.micro` as its characteristics is completely enough for our goal.
+Under **Instance Type** we can leave `t2.micro` as its characteristics are completely enough for our goal.
 
 ![instance_type](/assets/2024-10-15/instance_type.png){: width="450" }
 
@@ -118,7 +118,7 @@ have 1 CPU core and 1 GB of RAM.
 
 ### Create key pair
 
-Apart from having the machine itself, we will need to be able to connect to it later in order to deploy our application
+Apart from having the machine itself, we will need to be able to connect to it later to deploy our application
 there. This access can be configured in **Key pair (login)** section.
 
 If you already have a key pair, just select it from the dropdown. Otherwise, hit **Create new key pair** link on the
@@ -139,10 +139,10 @@ In the **Network settings**, we can leave the default VPC network chosen. This s
 our machine will be running.
 
 In **Firewall (security groups)** select **Create security group**.
-Check **Allow SSH traffic from** checkbox, leave **Anywhere** in the dropdown on the right. Please make sure to narrow
+Check **Allow SSH traffic from** checkbox, and leave **Anywhere** in the dropdown on the right. Please make sure to narrow
 down
 the IP addresses where you allow connection from when you deal with a production application. This is important because
-helps prevent malicious users accessing our application.
+helps prevent malicious users from accessing our application.
 Check **Allow HTTP traffic from the internet** box as we will want to call out Spring Boot application.
 
 ![Network Settings](/assets/2024-10-15/network_settings.png){: width="450" }
@@ -170,13 +170,13 @@ status check to turn green, indicating that the instance is ready.
 
 ### Check connectivity
 
-Let's check that we can connect to the machine. We can find the command for it using next simple steps.
+Let's check that we can connect to the machine. We can find the command for it using next the simple steps.
 
 Click on the instance ID, and push **Connect** button at the top right.
 When a new page opens, go to **SSH client** tab and find the command under
 `Connect to your instance using its Public DNS:`.
-Go to the local folder where you store the ssh key and run the command. You should see output similar to this.
-Keep in mind that the ip address of the box and its name will be different for you.
+Go to the local folder where you store the ssh key and run the command. You should see an output similar to this.
+Keep in mind that the IP address of the box and its name will be different for you.
 
 ```shell
 ~/ssh-keys> ssh -i "aws-ec2-demo-keys.pem" ec2-user@ec2-18-197-58-248.eu-central-1.compute.amazonaws.com
@@ -195,17 +195,17 @@ Keep in mind that the ip address of the box and its name will be different for y
 
 ## Deploy the application
 
-Now we have both our app and the box to deploy it to. Let's proceed with deployment!
+Now, we have both our app and the box to deploy it to. Let's proceed with deployment!
 
 The default package manager on Amazon Linux 2023 is DNF.
-First we run a command to update any installed packages. It is a good idea to do this so that the box
+First, we run a command to update any installed packages. It is a good idea to do this so that the box
 gets the latest software and security patches.
 
 ```shell
 sudo dnf update
 ```
 
-Next install Java
+Next, install Java
 
 ```shell
 sudo dnf install java-22-amazon-corretto
@@ -280,10 +280,10 @@ Hello World from Spring Boot![ec2-user@ip-172-31-44-26 ~]$
 ```
 
 What we see is that the application is running, and the port number 8080 is correct. But it is possible to call
-application only within the remote box itself.
+the application only within the remote box itself.
 
 Let's check the security group configuration.
-Navigate to the EC2 instance details page. Scroll down and select **Security** tab. There will be the link to the
+Navigate to the EC2 instance details page. Scroll down and select **Security** tab. There will be a link to the
 security
 group that we use. Click on it and see which traffic is allowed in the **Inbound rules**.
 
@@ -291,7 +291,7 @@ group that we use. Click on it and see which traffic is allowed in the **Inbound
 
 Can you see that the port number for HTTP protocol is 80? This is what was specified by default. We need to change this
 to the port number which our application is running on.
-Set the value to `8080`. No need to restart the machine. Go to you local terminal and try to call the remote application
+Set the value to `8080`. No need to restart the machine. Go to your local terminal and try to call the remote application
 again.
 
 ```shell
