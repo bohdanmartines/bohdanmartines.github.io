@@ -8,28 +8,34 @@ tags: [ AWS, Spring Boot ]
 
 Greetings, dear reader!
 
-Here we are starting a series of articles dedicated to demonstrate how to get your applications working on the internet.
+Cloud infrastructure is a major trend today, and Amazon Web Services (AWS) is one of the most popular cloud service
+providers.
 
-Today, we will make a simple hello world application in Java using Spring Boot, manually create and configure an EC2
-Linux machine in AWS, and deploy our application to it.
-This article's focus is to show you environment configuration, the assumption is that you already have experience with
-Java. You will need to make sure you have java and maven installed on your local machine, and have an AWS account to
-proceed.
-Let's get started!
+In this series of articles, I’ll walk you through how to get your applications up and running on the internet using
+AWS. Today, we’ll start by building a simple “Hello World” application in Java using Spring Boot. We’ll manually create
+and configure an EC2 Linux instance in AWS, and deploy our application to it.
+
+This article focuses on environment configuration and deployment. It’s designed for developers who are already familiar
+with Java but want to learn how to make their applications accessible to the world. To follow along, you’ll need to have
+Java and Maven installed on your local machine, as well as an AWS account.
+
+Let’s get started!
 
 ## Create Spring Boot application
 
 ### Initialize application
 
-Our starting point is to create an empty application. Go to https://start.spring.io/, select project type as Maven,
-chose Spring Web in the dependency list, and hit generate button.
-This will download for you a Spring Boot project containing class `DemoApplication`, the starter class of your app.
+To get started, we’ll create a simple Spring Boot project. Go to [Spring Initializer page](https://start.spring.io/),
+select **Maven** as project type, and chose **Spring Web** in the dependency list. Once you’re done, hit **Generate**
+button.
+This will download for you a Spring Boot project containing a single class `DemoApplication`, which is the main entry
+point for your application.
 
 ### Add controller
 
-Now let's add a single controller class which will represent our API and simply return string
-`Hello world from Spring Boot!`.
-We wil call the new class `DemoController`. Let's see what the project structure and the controller look like.
+Next, let’s add a controller class that will define an API endpoint and return a simple message: "Hello World from
+Spring Boot!". We’ll name the new class `DemoController`. Here’s what the project structure and the controller should
+look like:
 
 ![Desktop View](/assets/2024-10-15/project_structure.png){: width="250" height="300" }
 
@@ -54,16 +60,25 @@ This class declares a single method mapped to `/message` path.
 
 ### Build application and test locally
 
-Open the terminal and issue the following command `mvn clean package`. This will package your application into an
+Open the terminal and issue the following command
+
+```shell
+mvn clean package
+```
+
+This will package your application into an
 executable jar and put it into `target` folder of your project. In my case the jar is called
-`spring-boot-hello-world-0.0.1-SNAPSHOT.jar`. You can adjust the name by changing
-`artifactId` and `version` fields in your pom file.
+`spring-boot-hello-world-0.0.1-SNAPSHOT.jar`. You can adjust `artifactId` and `version` fields in your pom file to get
+the jar with the same name if you want.
 
-What application can be implemented without local testing? The answer is none :)
-Now we will verify that the endpoint works as expected. Start the application in your IDE or issue this command in the
-terminal `java -jar target/spring-boot-hello-world-0.0.1-SNAPSHOT.jar`.
+No application is complete without testing! Let’s verify that everything works by running the application locally. You
+can start the app either from your IDE or by running the following command in the terminal:
 
-Now, call the application endpoint in the terminal as below.
+```shell
+java -jar target/spring-boot-hello-world-0.0.1-SNAPSHOT.jar
+```
+
+Now, let’s test the `/message` endpoint by issuing a curl command:
 
 ```shell
 ~/projects/spring-boot-hello-world> curl localhost:8080/message
@@ -72,30 +87,29 @@ Hello World from Spring Boot!
 
 We see that the endpoint has returned our message, as expected.
 
-Well done! Now that we have a simple application in place, we can use it to show how to deploy stuff to the cloud. Let's
-move to creating an EC2 Linux machine in AWS.
+Well done! Now that we’ve built and tested a simple Spring Boot application, it’s time to deploy it to the cloud. In the
+next section, we’ll set up an EC2 Linux instance on AWS.
 
 ## Create EC2 instance
 
-This is the point where we do the infrastructure work.
-Please log in to your AWS account and navigate to Management Console.
+Now, it's time to set up the infrastructure. Log in to your AWS account and navigate to the **AWS Management Console**.
 
-In the Services search bar at the top, type `EC2` and select it in the search result.
-This opens EC2 Dashboard for you. Now click Launch instance button.
+In the search bar at the top, type `EC2` and select it from the results. This will open the **EC2 Dashboard**. Click the
+**Launch Instance** button to begin setting up your virtual machine.
 
 ![Desktop View](/assets/2024-10-15/aws_launch_instance.png){: width="300" height="160" }
 
 ### Specify instance name and type
 
-A window opens where you can specify the needed parameters for the machine to launch.
+A configuration window will open where you can set the parameters for your EC2 instance.
 Let's specify the name as `aws-ec2-demo-machine` (you can use an arbitrary name here).
 ![Desktop View](/assets/2024-10-15/instance_name.png){: width="450" }
 
-Next select `Amazon Linux` in Application and OS Images section  
+Next, select `Amazon Linux` in **Application and OS Images** section  
 ![OS Image](/assets/2024-10-15/os_image.png){: width="450" }
 
-The default image in the dropdown `Amazon Linux 2023 AMI` is OK for us, so we move to the next section.
-Under Instance Type we can leave `t2.micro` as its characteristics is completely enough for our goal.
+The default option, **Amazon Linux 2023 AMI**, is perfect for our use case.
+Under **Instance Type** we can leave `t2.micro` as its characteristics is completely enough for our goal.
 
 ![instance_type](/assets/2024-10-15/instance_type.png){: width="450" }
 
@@ -105,14 +119,14 @@ have 1 CPU core and 1 GB of RAM.
 ### Create key pair
 
 Apart from having the machine itself, we will need to be able to connect to it later in order to deploy our application
-there. This access can be configured in `Key pair (login)` section.
+there. This access can be configured in **Key pair (login)** section.
 
-If you already have a key pair, just select it from the dropdown. Otherwise, hit `Create new key pair` link on the
+If you already have a key pair, just select it from the dropdown. Otherwise, hit **Create new key pair** link on the
 right.
 
 ![Create new key pair](/assets/2024-10-15/new_key_pair.png){: width="450" }
 
-Let's put `aws-ec2-demo-keys` as the key pair name and push `Create key pair`.
+Let's put `aws-ec2-demo-keys` as the key pair name and push **Create key pair**.
 The key will be downloaded on your local machine. Please make sure that only you have access to it.
 
 Ensure that the new key pair is selected, and let's move on.
@@ -121,40 +135,45 @@ Ensure that the new key pair is selected, and let's move on.
 
 ### Network configuration
 
-In the `Network settings`, we can leave the default VPC network chosen. This specifies the part of AWS cloud in which
-our machine will be running. In `Firewall (security groups)` select `Create security group`.
-Check `Allow SSH traffic from` checkbox, leave `Anywhere` in the dropdown on the right. Please make sure to narrow down
+In the **Network settings**, we can leave the default VPC network chosen. This specifies the part of AWS cloud in which
+our machine will be running.
+
+In **Firewall (security groups)** select **Create security group**.
+Check **Allow SSH traffic from** checkbox, leave **Anywhere** in the dropdown on the right. Please make sure to narrow
+down
 the IP addresses where you allow connection from when you deal with a production application. This is important because
 helps prevent malicious users accessing our application.
-Check `Allow HTTP traffic from the internet` box as we will want to call out Spring Boot application.
+Check **Allow HTTP traffic from the internet** box as we will want to call out Spring Boot application.
 
 ![Network Settings](/assets/2024-10-15/network_settings.png){: width="450" }
 
 ### Storage configuration
 
-In `Configure storage`, we can leave the minimum value of 8 GB, this will be more than enough for our simple
+In **Configure storage**, we can leave the minimum value of 8 GB, this will be more than sufficient for our simple
 application.
 
 ![Configure storage](/assets/2024-10-15/configure_storage.png){: width="450" }
 
-You can leave `Advanced details` section with default values.
+You can leave **Advanced details** section with default values.
 
 ### Run instance
 
-Now review the summary, and, if everything is as expected, hit `Launch instance`.
+Now review the summary, and, if everything is as expected, hit **Launch instance**.
 
 ![Launch instance confirmation](/assets/2024-10-15/confirm_launch_instance.png){: width="300" }
 
-Let's return to the EC2 Dashboard and choose `Instances` in the menu on the left.
-Wait for a couple of minutes until `Status check` for your instance changes to green.
+To monitor the instance's status, return to the **EC2 Dashboard** and select **Instances** from the left-hand menu. Wait
+for the
+status check to turn green, indicating that the instance is ready.
 
 ![Instance launched](/assets/2024-10-15/instance_launched.png){: width="900" }
 
 ### Check connectivity
 
 Let's check that we can connect to the machine. We can find the command for it using next simple steps.
-Click on the instance ID, and push `Connect` button at the top right.
-When a new page opens, go to `SSH client` tab and find the command under
+
+Click on the instance ID, and push **Connect** button at the top right.
+When a new page opens, go to **SSH client** tab and find the command under
 `Connect to your instance using its Public DNS:`.
 Go to the local folder where you store the ssh key and run the command. You should see output similar to this.
 Keep in mind that the ip address of the box and its name will be different for you.
@@ -209,7 +228,8 @@ the command to copy our Spring Boot jar to the remote machine.
 spring-boot-hello-world-0.0.1-SNAPSHOT.jar                                                                                                        100%   19MB   4.4MB/s   00:04
 ```
 
-Go back to the terminal window connected to the remote host and check if the application was indeed copied.
+Go back to the terminal window connected to the remote host and check if the application was indeed copied. It should be
+in the home directory of ec2-user.
 
 ```shell
 [ec2-user@ip-172-31-44-26 ~]$ ls -la /home/ec2-user | grep jar
@@ -261,9 +281,11 @@ Hello World from Spring Boot![ec2-user@ip-172-31-44-26 ~]$
 
 What we see is that the application is running, and the port number 8080 is correct. But it is possible to call
 application only within the remote box itself.
+
 Let's check the security group configuration.
-Navigate to the EC2 instance details page. Scroll down and select `Security` tab. There will be the link to the security
-group that we use. Click on it and see which traffic is allowed in the inbound rules.
+Navigate to the EC2 instance details page. Scroll down and select **Security** tab. There will be the link to the
+security
+group that we use. Click on it and see which traffic is allowed in the **Inbound rules**.
 
 ![Inbound traffic rules](/assets/2024-10-15/inbound_traffic_rules.png)
 
@@ -281,9 +303,9 @@ It worked this time! That's it. This means it is just the time to send you my co
 
 ## Conclusion
 
-Today we started our Spring Boot application with an endpoint and made it available globally.
-This is a simple task, but that's only the first step. You can do much more on top of that.
-You can deploy your frontend in a similar way, add load balancing for clustered applications, or have a complex
-microservices platform in the cloud.
-The possibilities are really reach.
-I wish you the best of luck in your journey of coding and infrastructure management. See you in the next article!
+Today, we created a simple Spring Boot application with a basic endpoint and deployed it to make it globally accessible.
+While this task was straightforward, it's just the first step. There's so much more you can do! You could deploy a
+frontend in a similar manner, set up load balancing for clustered applications, or even build a complex microservices
+architecture in the cloud. The possibilities are vast.
+
+I wish you the best of luck on your journey into coding and infrastructure management. See you in the next article!
