@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Deploying Your First Spring Boot Application to Cloud with AWS
-date: 2023-07-28 11:00 +0000
+date: 2024-10-15 11:00 +0000
 categories: [ AWS ]
 tags: [ AWS, Spring Boot ]
 image: /assets/2024-10-15/thumbnail.png
