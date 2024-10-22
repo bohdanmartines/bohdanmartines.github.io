@@ -4,6 +4,7 @@ title: How to Easily Launch a Linux EC2 Instance Using AWS CLI
 date: 2024-10-22 10:00 +0000
 categories: [ AWS ]
 tags: [ AWS, AWS CLI, EC2 ]
+image: /assets/2024-10-22/thumbnail.png
 ---
 
 Hey there!
