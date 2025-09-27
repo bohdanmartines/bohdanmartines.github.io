@@ -3,6 +3,7 @@ layout: post
 title: "My First Scala Application: A Console Calculator"
 date: 2025-09-26
 categories: [ Scala, Beginner Guide ]
+image: /assets/2025-09-26/thumbnail.png
 ---
 
 # Console Calculator
