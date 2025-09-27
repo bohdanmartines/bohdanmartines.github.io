@@ -8,7 +8,7 @@ image: /assets/2025-09-26/thumbnail.jpg
 
 As an experienced Java developer, I recently decided to dive into the world of Scala to expand my programming toolkit.
 Scala’s unique blend of object-oriented and functional programming intrigued me, so I decided to create a simple
-command-line application — a Calculator — to get familiar with the language.
+command-line application - a Calculator - to get familiar with the language.
 
 In this post, I’ll share my experience building this program and highlight some key differences between Java and Scala.
 If you’re also a Java developer curious about Scala, this guide might help you take your first steps.
