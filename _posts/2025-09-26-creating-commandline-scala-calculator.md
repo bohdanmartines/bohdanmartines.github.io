@@ -1,12 +1,10 @@
 ---
 layout: post
-title: "My First Scala Application: A Console Calculator"
+title: "My First Scala Application: Console Calculator"
 date: 2025-09-26
 categories: [ Scala, Beginner Guide ]
 image: /assets/2025-09-26/thumbnail.jpg
 ---
-
-# Console Calculator
 
 As an experienced Java developer, I recently decided to dive into the world of Scala to expand my programming toolkit.
 Scala’s unique blend of object-oriented and functional programming intrigued me, so I decided to create a simple
