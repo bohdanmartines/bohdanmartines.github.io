@@ -233,7 +233,7 @@ We have everything in place to run our application and verify how it works.
 Let's open the terminal in the root directory and run `sbt run`:
 
 ```bash
-  sbt run
+  >sbt run
   Welcome to Console Calculator!
   Type an operation. Examples: 1 + 2 | 4.1 - 1 | 2 * 3 | 6 / 2 | 3.2 ^ 2
   calc>
