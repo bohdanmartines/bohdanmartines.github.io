@@ -34,7 +34,7 @@ invalid inputs gracefully, prevent division by zero, and allow users to exit by 
 
 The interaction will happen using a read-evaluate-print loop.
 
-## Steps to Create the Calculator
+## Steps to create the Calculator
 
 ### Create the project structure
 
@@ -66,7 +66,7 @@ The interaction will happen using a read-evaluate-print loop.
 
 ### Implement the logic
 
-#### Step 1. Create a simple **Read-Eval-Print Loop (REPL)**
+### Step 1. Create a simple **Read-Eval-Print Loop (REPL)**
 
 In this step we will implement the following logic:
 - The REPL will read the user input line-by-line.
@@ -135,6 +135,10 @@ def repl(): Unit =
     result.fold(error => println(error), res => println(s"Result is [$res]"))
     repl()
 ```
+The syntax where we validate and extract the user input with `match` and `case` keywords is called pattern matching. 
+It is in a way like Java `switch` operator, but it is much more powerful. 
+It allows you to match against types, regex, and case classes.
+
 You can notice that `Main.scala` now calls `Calculator.calculate`.
 Let's add this class with a stub implementation.
 
