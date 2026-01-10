@@ -6,11 +6,10 @@ categories: [ Scala, WebChat ]
 image: /assets/2026-01-10/webchat_demo_thumbnail.jpg
 ---
 
-## Introduction
 As a continuation of my journey into Scala,
-I decided to create something I have been longed for - my personal WebChat pet project.
+I decided to create something I have longed for - my personal WebChat pet project.
 This project was created for learning and demonstrational purposes.
-Nevertheless, it is true chat with user authentication, multi-participant chat room management, and real-time messaging implemented with WebSockets.
+Nevertheless, it is a true chat with user authentication, multi-participant chat room management, and real-time messaging implemented with WebSockets.
 All containerized with Docker for easy deployment and local start.
 
 In this article, I will show you a demo of how it looks. Please sit comfortably and enjoy. 
@@ -26,7 +25,7 @@ In this article, I will show you a demo of how it looks. Please sit comfortably 
 
 ## Running the Application
 
-Frist of all, let's start our application.
+First of all, let's start our application.
 Once you clone the repository, you can easily start WebChat using Docker with a single command!
 Here's how to get started:
 
@@ -64,7 +63,7 @@ The application implements secure user authentication using JWT tokens with a on
 **Registration:**
 
 Users can create an account by providing username and password.
-Email and password confirmation are omitted for simplicity.
+For simplicity, email and password confirmation are omitted.
 
 ![Registration Page](/assets/2026-01-10/registration.gif)
 
@@ -113,13 +112,13 @@ This project was developed iteratively over four main phases:
 
 ## Future Enhancements
 
-As next steps, we can consider next improvements to make this application more ready for real life:
+As next steps, we can consider these improvements to make this application more ready for real life:
 - Refresh tokens for better session management
-- User presence indicators (online/offline status)
+- Chat join/leave notifications (when users are added or removed from the chat)
 - File/image sharing in chats
 
 ## Conclusion
 
 I am really happy to have this project in my portfolio.
-It gave me a dive into Scala and WebSocket, which expands my knowledge of development with JVM-based languagues.
+It gave me a dive into Scala and WebSocket, which expands my knowledge of development with JVM-based languages.
 There is always something interesting to learn out there. See you next time and happy coding!
